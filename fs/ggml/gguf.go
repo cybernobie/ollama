@@ -530,7 +530,6 @@ func WriteGGUF(ws io.WriteSeeker, kv KV, ts []Tensor) error {
 	})
 
 	var s uint64
-	var alignment int64 = 32
 	for _, t := range ts {
 		t.Offset = s
 		if err := ggufWriteTensorInfo(ws, t); err != nil {
