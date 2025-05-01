@@ -645,9 +645,5 @@ func ggufWriteTensor(ws io.WriteSeeker, t Tensor, alignment int64) error {
 }
 
 func ggufPadding(offset, align int64) int64 {
-	// if we already fit perfectly onto a 16 byte boundary, don't bother padding
-	if ((align-offset%align)%align)%16 == 0 {
-		return 0
-	}
 	return (align - offset%align) % align
 }
